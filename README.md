@@ -1,7 +1,7 @@
 # Docker環境構築（Node.js + MariaDB + Nginx + Redis）
 
 Vagrantを使用してUbuntu 24.04上にDocker環境を自動構築するプロジェクトです。
-Ansibleを使用して必要なソフトウェアのインストールと設定を行い、Astro/Node.jsアプリケーションの実行環境を構築します。
+Ansibleを使用して必要なソフトウェアのインストールと設定を行い、GitHubから取得したWebアプリケーションを自動的にビルド・実行するための実行環境を構築します。
 
 ## 環境構成
 
