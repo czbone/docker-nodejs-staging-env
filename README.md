@@ -109,7 +109,7 @@ MariaDBの初期設定は以下の通りです（`playbooks/vars/main.yml` で�
 
 ## アプリケーション
 
-デフォルトでは [astro-nodejs-mariadb-starter](https://github.com/czbone/astro-nodejs-mariadb-starter) がデプロイされます。
+デフォルトでは [next16-mariadb-sample](https://github.com/czbone/next16-mariadb-sample) がデプロイされます。
 別のアプリケーションを使用する場合は `playbooks/vars/main.yml` の `app_repo_*` 変数を変更してください。
 
 ## トラブルシューティング
