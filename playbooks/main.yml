@@ -6,6 +6,10 @@
   vars:
     default_domain_name: 'example.com'
 
+    certbot_enabled: false  # Certbot機能の有効化/無効化
+    # certbot_test_cert: 1  # Certbot実行モード(0=正式モード,1=テストモード)
+    # certbot_email: 'admin@example.com'  # Let's Encrypt連絡受信用
+
   roles:
     # Docker environment
     - geerlingguy.docker
@@ -38,11 +42,19 @@
     - name: Create Docker container(nginx)
       import_tasks: ./tasks/nginx.yml
 
+    - name: Create Docker container(certbot)
+      import_tasks: ./tasks/certbot.yml
+      when: certbot_enabled | default(true)
+
     - name: Deploy Astro application(ufcal)
       import_tasks: ./tasks/app.yml
 
     - name: Create Docker container(nodejs)
       import_tasks: ./tasks/nodejs.yml
+
+    - name: Initialize Certbot
+      shell: docker container start certbot
+      when: certbot_enabled | default(true)
 
     - name: Restart nginx container to apply all changes
       docker_container:
